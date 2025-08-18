@@ -13,9 +13,10 @@ const GenreCard = ({ props }) => {
             src={`/header/${props.genre}.jpg`}
             fill={true}
             loading="eager"
-            alt="Picture of the author"
+            alt="Picture of the genre"
+            
           />
-          {/* <img className='object-cover' src={`/header/${props.genre}.jpg`} alt="" /> */}
+          
           <div className='w-full h-full bg-black opacity-50 absolute top-0 '></div>
           <div className='absolute top-0  w-full h-full flex justify-center items-center p-3 z-5 '>
             <p className='text-white font-semibold lg:font-bold text-2xl text-center xl:text-xl lg:text-lg md:text-base '>{props.genre.toUpperCase().replaceAll("-", " ")}</p>

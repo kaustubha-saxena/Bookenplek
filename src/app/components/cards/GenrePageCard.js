@@ -16,7 +16,7 @@ const GenrePageCard = ({props}) => {
             alt="Picture of the Genre"
             className='object-cover'
           />
-          {/* <img className='object-cover' src={`/header/${props.genre}.jpg`} alt="" /> */}
+         
           <div className='w-full h-full  absolute inset-0 bg-gradient-to-t from-black/70 to-black/30'></div>
           <div className='absolute top-0  w-full h-full flex justify-center items-center p-3 z-5 '>
             <p className='text-white  font-extrabold  text-center xl:text-3xl lg:text-lg md:text-base sm:text-xl text-2xl '>{props.genre.toUpperCase().replaceAll("-", " ")}</p>

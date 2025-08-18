@@ -20,6 +20,7 @@ const Bookcard = ({ props }) => {
               height={300}
               alt="Picture of Book Cover"
               className='rounded-xl '
+              loading='lazy'
             />
            
           </div>
