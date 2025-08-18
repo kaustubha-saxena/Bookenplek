@@ -12,12 +12,10 @@ const Hero2 = () => {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   )
-console.log(username);
+
 
   return (
     <>
-
-   
     <div className='w-[100%] sm:h-[100vh] h-[100vh] overflow-hidden object-center relative  top-0 bg-transparent'>
       
 <Image

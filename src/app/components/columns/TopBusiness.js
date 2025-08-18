@@ -23,14 +23,14 @@ const TopBiography = () => {
 
             setBook(re)
             setloaded(true)
-            console.log(re);
+           
         })
 
     }
 
     useEffect(() => {
 
-        // console.log("loaded");
+        
 
         // fetchData()
         fetchbook();

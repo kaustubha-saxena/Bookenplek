@@ -24,7 +24,7 @@ const TopBiography = () => {
 
             setBook(re)
             setloaded(true)
-            console.log(re);
+           
         })
 
     }

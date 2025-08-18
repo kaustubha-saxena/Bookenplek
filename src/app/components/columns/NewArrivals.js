@@ -23,7 +23,7 @@ const NewArrivals = () => {
 
             setBook(re)
             setloaded(true)
-            console.log(re.length);
+            
         })
 
     }

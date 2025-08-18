@@ -3,7 +3,7 @@ import React from 'react'
 const Hero = () => {
   return (
     <div className='w-100%   lg:h-[40vw] bg-black flex overflow-hidden relative pl-3 justify-center items-center '>
-      {/* lg:bg-red-300 xl:bg-blue-300 2xl:bg-green-300 */}
+     
       <div className='h-fit w-[40%]  bg-black text-gray-300  px-7 relative'>
 
         <h1 className='font-bold text-center lg:text-4xl xl:text-5xl 2xl:text-6xl '>Discover Your Next Favorite Book</h1>
