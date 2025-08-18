@@ -9,11 +9,11 @@ export async function POST(request) {
 
 
   await mongoose.connect(connectionStr).then(() => {
-    // console.log(data);
+  
 
   })
   const a = await Headermodel.find(data);
-  console.log("a.length",a.length);
+  
   
 
   return NextResponse.json(a)

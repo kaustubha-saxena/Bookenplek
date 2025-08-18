@@ -13,7 +13,7 @@ const Fiction = () => {
     })
     await res.json().then((result) => {
       setBook(result);
-      console.log(result);
+      
       setloaded(true)
     })
 

@@ -140,11 +140,6 @@ const [genre, setgenre] = useState([
 
   return (
     <>
-
-
-
-    
-
       <div className='w-[100vw] relative '>
         <div className=' mt-20 flex justify-end px-15 relative z-99'>
             

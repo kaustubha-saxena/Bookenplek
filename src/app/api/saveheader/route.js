@@ -5,7 +5,7 @@ import { Headermodel } from '../../../../model/header';
 import { Header } from '../../../../Header_Data';
 export async function GET(request) {
   await mongoose.connect(connectionStr).then(() => {
-    console.log("Connected");
+    
 
   })
   Header.forEach(element => {
