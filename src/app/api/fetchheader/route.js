@@ -1,20 +1,21 @@
-"use server"
 import { NextResponse } from "next/server";
-import mongoose from 'mongoose';
-import { connectionStr } from '@/lib/connection';
+import { connectToDatabase } from '@/lib/connection';
+import { databaseErrorResponse } from '@/lib/database-error';
 import { Headermodel } from "../../../../model/header";
 
 export async function POST(request) {
-  let data = await request.json();
+  let filter;
+  try {
+    filter = await request.json();
+  } catch {
+    return NextResponse.json({ error: 'Invalid JSON request body' }, { status: 400 });
+  }
 
-
-  await mongoose.connect(connectionStr).then(() => {
-  
-
-  })
-  const a = await Headermodel.find(data);
-  
-  
-
-  return NextResponse.json(a)
+  try {
+    await connectToDatabase();
+    const headers = await Headermodel.find(filter);
+    return NextResponse.json(headers);
+  } catch (error) {
+    return databaseErrorResponse('api/fetchheader', error);
+  }
 }

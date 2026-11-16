@@ -1,20 +1,21 @@
-"use server"
 import { NextResponse } from "next/server";
-import mongoose from 'mongoose';
-import { connectionStr } from '@/lib/connection';
+import { connectToDatabase } from '@/lib/connection';
+import { databaseErrorResponse } from '@/lib/database-error';
 import { Bookmodel } from '../../../../model/BooksSchema';
 
 export async function POST(request) {
-  let data = await request.json();
+  let filter;
+  try {
+    filter = await request.json();
+  } catch {
+    return NextResponse.json({ error: 'Invalid JSON request body' }, { status: 400 });
+  }
 
-
-await mongoose.connect(connectionStr).then(() => {
-
-})
-const a = await Bookmodel.find(data);
-
-
-  
-
-  return NextResponse.json(a)
+  try {
+    await connectToDatabase();
+    const books = await Bookmodel.find(filter);
+    return NextResponse.json(books);
+  } catch (error) {
+    return databaseErrorResponse('api/fetchbook', error);
+  }
 }

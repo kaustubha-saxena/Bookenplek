@@ -1,18 +1,22 @@
 import { NextResponse } from 'next/server';
-import mongoose from 'mongoose';
-import { connectionStr } from '@/lib/connection';
+import { connectToDatabase } from '@/lib/connection';
+import { databaseErrorResponse } from '@/lib/database-error';
 import { Headermodel } from '../../../../model/header';
 import { Header } from '../../../../Header_Data';
-export async function GET(request) {
-  await mongoose.connect(connectionStr).then(() => {
-    
 
-  })
-  Header.forEach(element => {
-    const header= new Headermodel(
-  element
-)
- header.save();
-  });
-  return NextResponse.json({message:"done"})
+export async function GET() {
+  try {
+    await connectToDatabase();
+    await Headermodel.bulkWrite(Header.map((header) => ({
+      updateOne: {
+        filter: { genre: header.genre },
+        update: { $set: header },
+        upsert: true,
+      },
+    })));
+
+    return NextResponse.json({ message: 'done' });
+  } catch (error) {
+    return databaseErrorResponse('api/saveheader', error);
+  }
 }
